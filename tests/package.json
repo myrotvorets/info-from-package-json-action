@@ -1,0 +1,13 @@
+{
+    "name": "some-name",
+    "version": "1.2.3",
+    "description": "some description",
+    "repository": {
+        "type": "git",
+        "url": "git+https://example.com/scm/"
+    },
+    "bugs": {
+        "url": "https://example.com/bugs/"
+    },
+    "homepage": "https://example.com/home/"
+}

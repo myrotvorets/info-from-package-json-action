@@ -1,11 +1,18 @@
-module.exports = {
-  clearMocks: true,
-  moduleFileExtensions: ['js', 'ts'],
-  testEnvironment: 'node',
-  testMatch: ['**/*.test.ts'],
-  testRunner: 'jest-circus/runner',
-  transform: {
-    '^.+\\.ts$': 'ts-jest'
-  },
-  verbose: true
-}
+const merge = require('merge');
+const ts_preset = require('ts-jest/jest-preset');
+
+module.exports = merge.recursive(ts_preset, {
+    collectCoverage: false,
+    clearMocks: true,
+    verbose: true,
+    testPathIgnorePatterns: [
+        '<rootDir>/dist/',
+        '<rootDir>/lib/',
+        '<rootDir>/node_modules/',
+    ],
+    globals: {
+        'ts-jest': {
+            packageJson: 'package.json',
+        },
+    }
+});

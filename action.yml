@@ -1,11 +1,11 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'info-from-package-json'
+description: 'Reads and outputs some information from package.json'
+author: 'Myrotvorets'
 inputs:
-  milliseconds: # change this
-    required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  workingdir:
+    required: false
+    description: 'Directory with package.json (default: current working directory)'
+    default: ''
 runs:
   using: 'node12'
   main: 'dist/index.js'

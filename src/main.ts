@@ -1,19 +1,56 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import * as core from '@actions/core';
+import { join } from 'path';
+import { promisify } from 'util';
+import fs from 'fs';
 
-async function run(): Promise<void> {
-  try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
+const stat = promisify(fs.stat);
+const readFile = promisify(fs.readFile);
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
-  } catch (error) {
-    core.setFailed(error.message)
-  }
+interface IPackage {
+    name?: string;
+    version?: string;
+    description?: string;
+    homepage?: string;
+    bugs?: {
+        url?: string;
+    };
+    repository?: {
+        url?: string;
+    };
 }
 
-run()
+async function exists(path: fs.PathLike): Promise<boolean> {
+    try {
+        await stat(path);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+async function run(): Promise<void> {
+    try {
+        const dir = core.getInput('workingdir', { required: false }) || process.cwd();
+        const file = join(dir, 'package.json');
+
+        if (!(await exists(file))) {
+            core.setFailed(`Unable to find file: ${file}`);
+            return;
+        }
+
+        const content = await readFile(file, { encoding: 'utf-8' });
+        const json = JSON.parse(content) as IPackage;
+
+        core.setOutput('packageName', json.name);
+        core.setOutput('packageVersion', json.version);
+        core.setOutput('packageDescription', json.description);
+        core.setOutput('packageHomepage', json.homepage);
+        core.setOutput('packageBugsUrl', json.bugs?.url);
+        core.setOutput('packageScmUrl', json.repository?.url);
+    } catch (error) {
+        core.setFailed((error as Error).message);
+    }
+}
+
+// eslint-disable-next-line no-void
+void run();
