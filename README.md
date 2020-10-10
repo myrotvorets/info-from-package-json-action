@@ -19,4 +19,29 @@ This action gathers some information from `package.json` to make it available to
 
 ## Example usage
 
-TBD
+```yaml
+- name: Retrieve information from package.json
+  uses: myrotvorets/info-from-package-json-action@1.0.0
+  id: ver
+```
+
+It can be useful, for example, together with [sonarcloud-github-action](https://github.com/SonarSource/sonarcloud-github-action):
+
+```yaml
+- name: Retrieve information from package.json
+  uses: myrotvorets/info-from-package-json-action@0.0.2
+  id: ver
+
+- name: SonarCloud Scan
+  uses: SonarSource/sonarcloud-github-action@master
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  with:
+    args: >
+      -Dsonar.projectName=${{ steps.ver.outputs.packageName }}
+      -Dsonar.projectVersion=${{ steps.ver.outputs.packageVersion }}
+      -Dsonar.links.homepage=${{ steps.ver.outputs.packageHomepage }}
+      -Dsonar.links.issue=${{ steps.ver.outputs.packageBugsUrl }}
+      -Dsonar.links.scm=${{ steps.ver.outputs.packageScmUrl }}
+```
