@@ -1,8 +1,7 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
-  "private": true,
-  "description": "TypeScript template action",
+  "name": "info-from-package-json-action",
+  "version": "0.0.1",
+  "description": "Gathers information from package.json to make it available to other actions",
   "main": "lib/src/main.js",
   "scripts": {
     "build": "tsc",
@@ -16,12 +15,8 @@
     "type": "git",
     "url": "git+https://github.com/actions/typescript-action.git"
   },
-  "keywords": [
-    "actions",
-    "node",
-    "setup"
-  ],
-  "author": "",
+  "keywords": [],
+  "author": "Myrotvorets <support@myrotvorets.center> (https://myrotvorets.center/)",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6"
@@ -42,5 +37,9 @@
     "ts-jest": "^26.4.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/actions/typescript-action/issues"
+  },
+  "homepage": "https://github.com/actions/typescript-action#readme"
 }
