@@ -6,6 +6,24 @@ inputs:
     required: false
     description: 'Directory with package.json (default: current working directory)'
     default: ''
+
+outputs:
+  packageName:
+    description: '`name` from `package.json`'
+  packageVersion:
+    description: '`version` from `package.json`'
+  packageDescription:
+    description: '`description` from `package.json`'
+  packageHomepage:
+    description: '`homepage` from `package.json`'
+  packageBugsUrl:
+    description: '`bugs.url` from `package.json`'
+  packageScmUrl:
+    description: '`repository.url` from `package.json`'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  color: blue
+  icon: info
