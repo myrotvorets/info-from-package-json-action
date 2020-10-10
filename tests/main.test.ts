@@ -21,7 +21,7 @@ describe('Test Run', () => {
 
     it('should find package.json in the current directory', () => {
         const options: ExecSyncOptions = {
-            env: {},
+            env: process.env,
             cwd: __dirname,
             encoding: 'utf-8',
         };
@@ -32,6 +32,7 @@ describe('Test Run', () => {
     it('should accept path to package.json', () => {
         const options: ExecSyncOptions = {
             env: {
+                ...process.env,
                 INPUT_WORKINGDIR: __dirname,
             },
             cwd: normalize(join(__dirname, '..')),
