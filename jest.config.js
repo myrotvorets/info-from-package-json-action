@@ -10,9 +10,4 @@ module.exports = merge.recursive(ts_preset, {
         '<rootDir>/lib/',
         '<rootDir>/node_modules/',
     ],
-    globals: {
-        'ts-jest': {
-            packageJson: 'package.json',
-        },
-    }
 });
