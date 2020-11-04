@@ -5,18 +5,14 @@ describe('Test Run', () => {
     const runner = (options: ExecSyncOptions): void => {
         const action = join(__dirname, '..', 'src', 'main.ts');
 
-        try {
-            const response = execSync(`npx ts-node "${action}"`, options);
+        const response = execSync(`npx ts-node "${action}"`, options);
 
-            expect(response).toContain('::set-output name=packageName::some-name');
-            expect(response).toContain('::set-output name=packageVersion::1.2.3');
-            expect(response).toContain('::set-output name=packageDescription::some description');
-            expect(response).toContain('::set-output name=packageHomepage::https://example.com/home/');
-            expect(response).toContain('::set-output name=packageBugsUrl::https://example.com/bugs/');
-            expect(response).toContain('::set-output name=packageScmUrl::git+https://example.com/scm/');
-        } catch (e) {
-            fail(e);
-        }
+        expect(response).toContain('::set-output name=packageName::some-name');
+        expect(response).toContain('::set-output name=packageVersion::1.2.3');
+        expect(response).toContain('::set-output name=packageDescription::some description');
+        expect(response).toContain('::set-output name=packageHomepage::https://example.com/home/');
+        expect(response).toContain('::set-output name=packageBugsUrl::https://example.com/bugs/');
+        expect(response).toContain('::set-output name=packageScmUrl::git+https://example.com/scm/');
     };
 
     it('should find package.json in the current directory', () => {
