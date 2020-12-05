@@ -5,7 +5,7 @@ describe('Test Run', () => {
     const runner = (options: ExecSyncOptions): void => {
         const action = join(__dirname, '..', 'src', 'main.ts');
 
-        const response = execSync(`npx ts-node "${action}"`, options);
+        const response = execSync(`npx ts-node "${action}"`, options).toString();
 
         expect(response).toContain('::set-output name=packageName::some-name');
         expect(response).toContain('::set-output name=packageVersion::1.2.3');
