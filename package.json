@@ -25,7 +25,7 @@
     "@myrotvorets/eslint-config-myrotvorets-ts": "^2.1.0",
     "@types/jest": "^26.0.16",
     "@types/node": "^14.14.10",
-    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@vercel/ncc": "^0.25.1",
     "eslint": "^7.15.0",
     "eslint-plugin-import": "^2.22.1",
