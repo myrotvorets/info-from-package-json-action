@@ -19,19 +19,19 @@
   "author": "Myrotvorets <support@myrotvorets.center> (https://myrotvorets.center/)",
   "license": "MIT",
   "devDependencies": {
-    "@actions/core": "^1.2.6",
-    "@myrotvorets/eslint-config-myrotvorets-ts": "^2.2.5",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.4.0",
-    "@vercel/ncc": "^0.31.0",
-    "eslint": "^7.19.0",
-    "eslint-formatter-gha": "^1.2.0",
+    "@actions/core": "1.5.0",
+    "@myrotvorets/eslint-config-myrotvorets-ts": "2.6.0",
+    "@types/jest": "27.0.1",
+    "@types/node": "16.9.1",
+    "@vercel/ncc": "0.31.0",
+    "eslint": "7.32.0",
+    "eslint-formatter-gha": "1.2.0",
     "jest": "^27.0.1",
-    "merge": "^2.1.1",
-    "prettier": "^2.2.1",
-    "ts-jest": "^27.0.1",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.1.3"
+    "merge": "2.1.1",
+    "prettier": "2.4.0",
+    "ts-jest": "27.0.5",
+    "ts-node": "10.2.1",
+    "typescript": "4.4.2"
   },
   "bugs": {
     "url": "https://github.com/myrotvorets/info-from-package-json-action/issues"
