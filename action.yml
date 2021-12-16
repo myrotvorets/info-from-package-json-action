@@ -22,7 +22,7 @@ outputs:
     description: '`repository.url` from `package.json`'
 
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
 branding:
   color: blue
