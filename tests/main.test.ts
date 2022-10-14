@@ -15,6 +15,10 @@ describe('Test Run', () => {
         expect(response).toContain('::set-output name=packageScmUrl::git+https://example.com/scm/');
     };
 
+    beforeEach(() => {
+        process.env.GITHUB_OUTPUT = '';
+    });
+
     it('should find package.json in the current directory', () => {
         const options: ExecSyncOptions = {
             env: process.env,
