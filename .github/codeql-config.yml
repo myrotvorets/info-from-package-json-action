@@ -1,0 +1,11 @@
+name: CodeQL Config
+
+paths:
+  - src
+  - tests
+
+paths-ignore:
+  - node_modules
+
+queries:
+  - uses: security-and-quality
