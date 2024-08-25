@@ -1,6 +1,6 @@
 {
   "name": "info-from-package-json-action",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Gathers information from package.json to make it available to other actions",
   "main": "lib/src/main.js",
   "scripts": {
