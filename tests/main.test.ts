@@ -5,6 +5,7 @@ describe('Test Run', () => {
     const runner = (options: ExecSyncOptions): void => {
         const action = join(__dirname, '..', 'src', 'main.ts');
 
+        // eslint-disable-next-line sonarjs/os-command -- OK for testing
         const response = execSync(`npx ts-node "${action}"`, options).toString();
 
         expect(response).toContain('::set-output name=packageName::some-name');

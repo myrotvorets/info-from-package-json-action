@@ -23,7 +23,7 @@ async function exists(path: fs.PathLike): Promise<boolean> {
     try {
         await stat(path);
         return true;
-    } catch (e) {
+    } catch {
         return false;
     }
 }
