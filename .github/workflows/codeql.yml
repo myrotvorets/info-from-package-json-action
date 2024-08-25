@@ -7,12 +7,14 @@ on:
     paths:
       - "src/**"
       - "test/**"
+      - ".github/workflows/codeql.yml"
   pull_request:
     branches:
       - master
     paths:
       - "src/**"
       - "test/**"
+      - ".github/workflows/codeql.yml"
   schedule:
     - cron: "52 3 * * 4"
 
