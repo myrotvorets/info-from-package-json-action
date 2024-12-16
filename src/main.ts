@@ -1,7 +1,7 @@
+import { join } from 'node:path';
+import { promisify } from 'node:util';
+import fs from 'node:fs';
 import * as core from '@actions/core';
-import { join } from 'path';
-import { promisify } from 'util';
-import fs from 'fs';
 
 const stat = promisify(fs.stat);
 const readFile = promisify(fs.readFile);
@@ -52,5 +52,4 @@ async function run(): Promise<void> {
     }
 }
 
-// eslint-disable-next-line no-void
 void run();
