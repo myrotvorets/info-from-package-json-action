@@ -1,10 +1,6 @@
 import { join } from 'node:path';
-import { promisify } from 'node:util';
-import fs from 'node:fs';
+import { readFile, stat } from 'node:fs/promises';
 import * as core from '@actions/core';
-
-const stat = promisify(fs.stat);
-const readFile = promisify(fs.readFile);
 
 interface IPackage {
     name?: string;
@@ -19,7 +15,7 @@ interface IPackage {
     };
 }
 
-async function exists(path: fs.PathLike): Promise<boolean> {
+async function exists(path: Parameters<typeof stat>[0]): Promise<boolean> {
     try {
         await stat(path);
         return true;
