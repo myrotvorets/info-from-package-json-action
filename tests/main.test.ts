@@ -1,26 +1,28 @@
+import { equal } from 'node:assert/strict';
+import { before, describe, it } from 'node:test';
 import { ExecSyncOptions, execSync } from 'node:child_process';
 import { join, normalize } from 'node:path';
 
-describe('Test Run', () => {
+void describe('Test Run', async () => {
     const runner = (options: ExecSyncOptions): void => {
         const action = join(__dirname, '..', 'src', 'main.ts');
 
         // eslint-disable-next-line sonarjs/os-command -- OK for testing
         const response = execSync(`npx ts-node "${action}"`, options).toString();
 
-        expect(response).toContain('::set-output name=packageName::some-name');
-        expect(response).toContain('::set-output name=packageVersion::1.2.3');
-        expect(response).toContain('::set-output name=packageDescription::some description');
-        expect(response).toContain('::set-output name=packageHomepage::https://example.com/home/');
-        expect(response).toContain('::set-output name=packageBugsUrl::https://example.com/bugs/');
-        expect(response).toContain('::set-output name=packageScmUrl::git+https://example.com/scm/');
+        equal(response.includes('::set-output name=packageName::some-name'), true);
+        equal(response.includes('::set-output name=packageVersion::1.2.3'), true);
+        equal(response.includes('::set-output name=packageDescription::some description'), true);
+        equal(response.includes('::set-output name=packageHomepage::https://example.com/home/'), true);
+        equal(response.includes('::set-output name=packageBugsUrl::https://example.com/bugs/'), true);
+        equal(response.includes('::set-output name=packageScmUrl::git+https://example.com/scm/'), true);
     };
 
-    beforeEach(() => {
+    before(() => {
         process.env.GITHUB_OUTPUT = '';
     });
 
-    it('should find package.json in the current directory', () => {
+    await it('should find package.json in the current directory', () => {
         const options: ExecSyncOptions = {
             env: process.env,
             cwd: __dirname,
@@ -30,7 +32,7 @@ describe('Test Run', () => {
         runner(options);
     });
 
-    it('should accept path to package.json', () => {
+    await it('should accept path to package.json', () => {
         const options: ExecSyncOptions = {
             env: {
                 ...process.env,
