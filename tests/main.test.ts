@@ -1,5 +1,5 @@
-import { ExecSyncOptions, execSync } from 'child_process';
-import { join, normalize } from 'path';
+import { ExecSyncOptions, execSync } from 'node:child_process';
+import { join, normalize } from 'node:path';
 
 describe('Test Run', () => {
     const runner = (options: ExecSyncOptions): void => {
