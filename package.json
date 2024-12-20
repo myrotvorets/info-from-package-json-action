@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/myrotvorets/info-from-package-json-action#readme",
   "engines": {
-    "node": "20"
+    "node": "22"
   }
 }
