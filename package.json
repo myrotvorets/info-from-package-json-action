@@ -21,7 +21,7 @@
   "devDependencies": {
     "@actions/core": "^1.11.1",
     "@myrotvorets/eslint-config-myrotvorets-ts": "^3.0.1",
-    "@types/node": "^22.10.2",
+    "@types/node": "^24.0.0",
     "@vercel/ncc": "^0.38.3",
     "eslint-formatter-gha": "^1.5.2",
     "node-reporter-gha": "^2.0.4",
