@@ -26,7 +26,7 @@
     "eslint-formatter-gha": "^2.0.1",
     "node-reporter-gha": "^2.0.8",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.0"
   },
   "bugs": {
     "url": "https://github.com/myrotvorets/info-from-package-json-action/issues"
